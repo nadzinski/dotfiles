@@ -4,6 +4,10 @@ set nocompatible " turn off vi compatability
 if has("unix")
     if system("uname")  == "Darwin\n"
         let os_type = "OSX"
+    elseif system("uname") == "Linux\n"
+        let os_type = "LINUX"
+    else
+        let os_type = "OTHER"
     endif
 endif
 
