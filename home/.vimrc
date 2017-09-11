@@ -16,6 +16,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" runtime path
+set rtp+=~/.fzf     " fzf fuzzy finder
+
 " ===== Status Information =====
 set number              " line numbers
 set cursorline          " Highlight current line
@@ -50,9 +53,6 @@ autocmd BufWritePre *.py,*.js,*.hs,*.html,*.css,*.scss :%s/\s\+$//e
 set undofile
 set undodir=~/.vim/undodir//
 
-" fzf fuzzy search
-nnoremap <leader>f :Files<cr>
-set rtp+=~/.fzf     " fzf install location
 
 " ===== Clipboard =====
 " use system clipboard
@@ -89,6 +89,9 @@ inoremap <right> <nop>
 
 " Nerdtree
 map <leader>t :NERDTreeToggle<CR>
+
+" fzf fuzzy search
+nnoremap <leader>f :Files<cr>
 
 " ===== Color Scheme =====
 colorscheme badwolf
