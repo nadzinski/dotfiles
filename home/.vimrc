@@ -93,6 +93,9 @@ map <leader>t :NERDTreeToggle<CR>
 " fzf fuzzy search
 nnoremap <leader>f :Files<cr>
 
+" grep for word under cursor
+nnoremap <C-a> :!ag <cword><CR>
+
 " ===== Color Scheme =====
 colorscheme badwolf
 
