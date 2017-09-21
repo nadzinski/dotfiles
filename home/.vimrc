@@ -87,8 +87,11 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+" New tab 
+map <leader>t :tabnew<CR>
+
 " Nerdtree
-map <leader>t :NERDTreeToggle<CR>
+map <leader>r :NERDTreeToggle<CR>
 
 " fzf fuzzy search
 nnoremap <leader>f :Files<cr>
