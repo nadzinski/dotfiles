@@ -3,7 +3,7 @@
 [ -f $GIT_DIR/MERGE_MSG ] && exit 0
 
 branch=`git rev-parse --abbrev-ref HEAD`
-ticket=`echo $branch | egrep -o DEV-[0-9]+`
+ticket=`echo $branch | sed 's/.*\(DEV-[0-9]\+\).*/\1/'`
 
 [ -z $ticket ] && exit 0
 
