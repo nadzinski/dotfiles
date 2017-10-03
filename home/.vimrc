@@ -37,8 +37,9 @@ set statusline+=%(%l,%c\ %=\ %P%)
 set statusline+=%*      " restore normal highlight
  
 " ===== Search =====
-set hlsearch " Search match highlighting
-set ignorecase  " case insensitive search
+set hlsearch   " Search match highlighting
+set ignorecase " Case insensitive...
+set smartcase  " ... except if search term includes caps
 
 set backspace=indent,eol,start
 
