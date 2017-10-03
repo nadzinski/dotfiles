@@ -40,6 +40,7 @@ set statusline+=%*      " restore normal highlight
 set hlsearch   " Search match highlighting
 set ignorecase " Case insensitive...
 set smartcase  " ... except if search term includes caps
+set incsearch  " Incremental search
 
 set backspace=indent,eol,start
 
