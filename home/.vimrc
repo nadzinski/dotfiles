@@ -147,6 +147,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_loc_list_height = 5
 
+let g:syntastic_python_checkers = ['flake8']
+
 " Gvim specific
 if has("gui_running")
   syntax enable
