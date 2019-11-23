@@ -4,6 +4,12 @@
 
 ## Install vim
 
+## Make vim default editor:
+```
+sudo update-alternatives --config editor
+```
+(choose vim.basic)
+
 ## Install git
 
 ## Run `vim_plugins.sh` script
