@@ -4,6 +4,11 @@
 
 ## Install vim
 
+To make the X11 clipboard work:
+```
+sudo apt-get install vim-gtk
+```
+
 ## Make vim default editor:
 ```
 sudo update-alternatives --config editor
