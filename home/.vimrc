@@ -140,6 +140,9 @@ autocmd Filetype sls
             \ setlocal shiftwidth=4 tabstop=4 softtabstop=4 
 
 " Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -147,7 +150,20 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_loc_list_height = 5
 
+
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args="--exclude="
+
+nnoremap <leader>m :SyntasticCheck mypy<cr>
+let g:syntastic_python_mypy_args="--show-error-codes --follow-imports=silent --ignore-missing-imports"
+
+" Ale
+let g:ale_open_list = 'on_save'
+let g:ale_list_window_size = 5
+augroup CloseLoclistWindowGroup
+  autocmd!
+  autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
 " Gvim specific
 if has("gui_running")
