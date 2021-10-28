@@ -118,7 +118,7 @@ autocmd Filetype python
                 \set shiftwidth=4 |
                 \set expandtab |
                 \set encoding=utf-8 |
-                \nnoremap <buffer> <leader>d oimport pdb; pdb.set_trace()<esc>^
+                \nnoremap <buffer> <leader>d oimport ipdb; ipdb.set_trace()<esc>^
 
 autocmd Filetype javascript
             \ set tabstop=2 |
