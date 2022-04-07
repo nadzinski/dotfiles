@@ -29,3 +29,5 @@ homedir="home"
 find "$dir/$homedir" -type f | while read f; do
     link_file "$( basename $f)" "$homedir"
 done
+
+./scripts/vim_plugins.sh
