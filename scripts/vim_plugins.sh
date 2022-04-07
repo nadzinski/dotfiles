@@ -13,6 +13,6 @@ git -C ~/.vim/bundle clone https://tpope.io/vim/commentary.git
 git -C ~/.vim/bundle clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+~/.fzf/install --no-key-bindings --no-completion --no-update-rc
 
 git -C ~/.vim/bundle clone https://github.com/junegunn/fzf.vim
