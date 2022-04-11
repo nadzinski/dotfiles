@@ -175,3 +175,7 @@ if has("gui_running")
   set guicursor+=n-v-c:blinkon0
   set guifont=Monospace\ 12
 endif
+
+" Send all yanks to system clipboard
+let g:oscyank_silent = v:true
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' && exists(":OSCYankReg") | execute 'OSCYankReg "' | endif
