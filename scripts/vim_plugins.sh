@@ -1,3 +1,5 @@
+git config --global core.editor vim
+
 mkdir -p ~/.vim/
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
