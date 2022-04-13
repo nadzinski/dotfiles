@@ -20,3 +20,5 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git -C ~/.vim/bundle clone https://github.com/junegunn/fzf.vim
 
 git -C ~/.vim/bundle clone https://github.com/ojroques/vim-oscyank.git
+
+# git -C ~/.vim/bundle clone https://github.com/fisadev/vim-isort.git
