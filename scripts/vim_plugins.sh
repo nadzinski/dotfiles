@@ -22,3 +22,5 @@ git -C ~/.vim/bundle clone https://github.com/junegunn/fzf.vim
 git -C ~/.vim/bundle clone https://github.com/ojroques/vim-oscyank.git
 
 # git -C ~/.vim/bundle clone https://github.com/fisadev/vim-isort.git
+
+git -C ~/.vim/bundle clone https://github.com/leafgarland/typescript-vim.git
