@@ -26,7 +26,7 @@ set ruler               " Show position in file
 set showcmd             " show command in bottom bar
 set laststatus=2        " Always display statusline
 set statusline=%f       " relative path
-set statusline+=\ (%{fugitive#head(6)})    " branch or commit hash
+set statusline+=\ (%{FugitiveStatusline()})    " branch or commit hash
 set statusline+=\ %h    " help buffer flag
 set statusline+=%w      " preview window flag
 set statusline+=%m      " modified flag
