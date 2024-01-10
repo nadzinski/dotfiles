@@ -1,3 +1,5 @@
+if [[ -f /workspaces/web/profile ]]; then . /workspaces/web/profile; fi
+
 # Git aliases
 alias gcb="git checkout -b"
 alias gpu="git push -u origin \$(git rev-parse --abbrev-ref HEAD)"
