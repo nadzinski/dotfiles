@@ -155,7 +155,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--exclude="
 
 nnoremap <leader>m :SyntasticCheck mypy<cr>
-let g:syntastic_python_mypy_args="--show-error-codes --follow-imports=silent --ignore-missing-imports"
+let g:syntastic_python_mypy_args="--show-error-codes --follow-imports=silent --ignore-missing-imports --namespace-packages"
 
 " Ale
 let g:ale_open_list = 'on_save'
