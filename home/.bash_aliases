@@ -11,3 +11,15 @@ alias runblack="git status -s | grep -e ' M ' -e '?? ' | cut -c4- | xargs black 
 alias runisort="git status -s | grep -e ' M ' -e '?? ' | cut -c4- | xargs isort --settings ./pyproject.toml"
 
 # export PRE_COMMIT_ENABLED=true
+#
+
+function install_roverform {
+    mkdir -p $HOME/.aws/cli
+    mkdir -p $HOME/.local/bin
+    image="${ROVERFORM_IMAGE_REPO:-ghcr.io/roverdotcom/roverform}:${ROVERFORM_IMAGE_TAG:-latest}"
+    docker pull $image
+    container=$(docker create $image)
+    docker cp $container:/roverform/bin/roverform $HOME/.local/bin/roverform
+    ln -nfs ./roverform ~/.local/bin/rf
+    docker rm -f $container
+}
