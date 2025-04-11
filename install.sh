@@ -31,3 +31,7 @@ find "$dir/$homedir" -type f | while read f; do
 done
 
 ./scripts/vim_plugins.sh
+
+if [ -n "${CODESPACE_NAME}" ]; then
+    ./scripts/codespaces.sh
+fi
