@@ -1,3 +1,5 @@
+npm install -g @anthropic-ai/claude-code
+
 export CLAUDE_CODE_USE_BEDROCK=1
 export AWS_PROFILE=dev
 export AWS_REGION=us-west-2
