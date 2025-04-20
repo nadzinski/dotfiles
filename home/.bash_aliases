@@ -12,6 +12,12 @@ alias runisort="git status -s | grep -e ' M ' -e '?? ' | cut -c4- | xargs isort 
 
 # export PRE_COMMIT_ENABLED=true
 #
+#
+#
+export CLAUDE_CODE_USE_BEDROCK=1
+export AWS_PROFILE=dev
+export AWS_REGION=us-west-2
+export ANTHROPIC_MODEL=us.anthropic.claude-3-7-sonnet-20250219-v1:0
 
 function install_roverform {
     mkdir -p $HOME/.aws/cli
