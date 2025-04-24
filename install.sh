@@ -30,6 +30,9 @@ find "$dir/$homedir" -type f | while read f; do
     link_file "$( basename $f)" "$homedir"
 done
 
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --no-key-bindings --no-completion --no-update-rc
+
 ./scripts/vim_plugins.sh
 
 if [ -n "${CODESPACE_NAME}" ]; then
