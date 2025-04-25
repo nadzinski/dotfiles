@@ -180,4 +180,17 @@ vim.cmd('FzfLua setup_fzfvim_cmds')
 
 vim.keymap.set('n', '<leader>f', ':Files<cr>', { noremap = true, silent = true})
 
+local function toggle_quickfix()
+  local windows = vim.fn.getwininfo()
+  for _, win in pairs(windows) do
+    if win["quickfix"] == 1 then
+      vim.cmd.lclose()
+      return
+    end
+  end
+  vim.diagnostic.setloclist()
+end
+vim.keymap.set('n', '<Leader>l', toggle_quickfix, { desc = "Toggle Quickfix Window" })
+vim.keymap.set('n', '<Leader>k', vim.diagnostic.open_float, { desc = "Toggle Current Line Float" })
+
 vim.cmd.colorscheme('catppuccin')
