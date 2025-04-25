@@ -3,6 +3,9 @@
 SOURCE_SUBDIR="home"
 TARGET_DIR="$HOME"
 
+# Suffix for backup files (timestamp will be added)
+BACKUP_SUFFIX=".bak"
+
 # Get the absolute path to the directory where this script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
@@ -43,10 +46,21 @@ find . -type f -print0 | while IFS= read -r -d $'\0' file; do
     # Check if it's already a symlink pointing to the correct source
     if [ -L "$target_path" ] && [ "$(readlink "$target_path")" = "$source_path" ]; then
       echo "Skipping: Link already exists and is correct: '$target_path' -> '$source_path'"
+      echo "---"
+      continue # Skip to the next file
     else
-      echo "Warning: Target already exists (and is not the correct link): '$target_path'. Skipping."
+      # Target exists and is not the correct symlink, create a backup
+      timestamp=$(date +%Y%m%d_%H%M%S)
+      backup_path="${target_path}${BACKUP_SUFFIX}.${timestamp}"
+      echo "Warning: Target '$target_path' already exists."
+      echo "Backing up existing target to '$backup_path'"
+      mv "$target_path" "$backup_path"
+      if [ $? -ne 0 ]; then
+          echo "Error: Failed to back up '$target_path'. Skipping file '$relative_file'."
+          echo "---"
+          continue
+      fi
     fi
-    continue # Skip to the next file
   fi
 
   # Create the target directory structure if it doesn't exist
