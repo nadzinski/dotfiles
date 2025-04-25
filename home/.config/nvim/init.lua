@@ -127,7 +127,7 @@ require("lazy").setup({
           lint.try_lint()
         end, { desc = 'Lint' })
       end,
-    }
+    },
     {
       'stevearc/conform.nvim',
 
