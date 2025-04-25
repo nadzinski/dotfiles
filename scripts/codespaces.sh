@@ -7,6 +7,8 @@ rm nvim-linux-x86_64.appimage
 mkdir -p $HOME/.local/bin
 ln -sf "$HOME/.nvim/usr/bin/nvim" "$HOME/.local/bin"
 
+sudo apt update && sudo apt install silversearcher-ag
+
 npm install -g @anthropic-ai/claude-code
 
 function write_aws_saml_credentials {
