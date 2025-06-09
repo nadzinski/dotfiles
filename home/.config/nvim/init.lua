@@ -8,7 +8,9 @@ vim.keymap.set('n', '<leader>b', '<cmd>b#<CR>', { desc = 'Switch to Other Buffer
 vim.opt.number = true
 
 -- copy to system clipboard, even in tmux and ssh
-vim.g.clipboard = 'osc52'
+if sysname == "Darwin" then
+  vim.g.clipboard = 'osc52'
+end
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
