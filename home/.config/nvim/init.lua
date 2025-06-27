@@ -1,3 +1,5 @@
+local is_codespace = os.getenv("CODESPACES") == "true"
+
 -- remape leader to <space>
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -8,7 +10,7 @@ vim.keymap.set('n', '<leader>b', '<cmd>b#<CR>', { desc = 'Switch to Other Buffer
 vim.opt.number = true
 
 -- copy to system clipboard, even in tmux and ssh
-if sysname == "Darwin" then
+if sysname == "Darwin" or is_codespace then
   vim.g.clipboard = 'osc52'
 end
 
