@@ -1,8 +1,5 @@
 if [[ -f /workspaces/web/profile ]]; then . /workspaces/web/profile; fi
 
-# for non-interactive shells, e.g. Claude Code's
-export BASH_ENV=~/.bash_aliases
-
 # Git aliases
 alias gcb="git checkout -b"
 alias gpu="git push -u origin \$(git rev-parse --abbrev-ref HEAD)"
