@@ -8,6 +8,10 @@ mkdir -p $HOME/.local/bin
 ln -sf "$HOME/.nvim/usr/bin/nvim" "$HOME/.local/bin"
 
 sudo apt update && sudo apt install silversearcher-ag
+
+if [ -f ".mcp-sample.json" ]; then
+    cp .mcp-sample.json .mcp.json
+fi
 #
 # function write_aws_saml_credentials {
 #     if [[ ! -z "${ROVER_AWS_SAML_HELPER_CREDENTIALS:-}" ]]; then
