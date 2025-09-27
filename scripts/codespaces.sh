@@ -9,6 +9,7 @@ ln -sf "$HOME/.nvim/usr/bin/nvim" "$HOME/.local/bin"
 
 sudo apt update && sudo apt install silversearcher-ag
 
+cd /workspaces/*/
 if [ -f ".mcp-sample.json" ]; then
     cp .mcp-sample.json .mcp.json
 fi
