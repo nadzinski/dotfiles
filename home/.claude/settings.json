@@ -24,5 +24,16 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "mem@agents-praxis": true
+  },
+  "extraKnownMarketplaces": {
+    "nadia-tools": {
+      "source": {
+        "source": "github",
+        "repo": "nadzinski/agents-praxis"
+      }
+    }
   }
 }
