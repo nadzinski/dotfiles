@@ -5,6 +5,11 @@ alias gcb="git checkout -b"
 alias gpu="git push -u origin \$(git rev-parse --abbrev-ref HEAD)"
 alias gps-sre-tune="git push -f origin \$(git rev-parse --abbrev-ref HEAD):staging-sre-tune"
 
+# Codespaces-specific aliases
+if [[ "$CODESPACES" == "true" ]]; then
+    alias dotfiles="cd /workspaces/.codespaces/.persistedshare/dotfiles"
+fi
+
 alias run-mypy="dc run --workdir /web --rm --no-deps web mypy --show-error-codes src/aplaceforrover"
 
 alias runblack="git status -s | grep -e ' M ' -e '?? ' | cut -c4- | xargs black --config ./pyproject.toml"
