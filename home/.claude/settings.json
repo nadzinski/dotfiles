@@ -1,0 +1,28 @@
+{
+  "env": {
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0 
+  },
+  "permissions": {
+    "allow": [
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+        ]
+      }
+    ]
+  }
+}
