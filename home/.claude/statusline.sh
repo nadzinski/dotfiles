@@ -17,13 +17,21 @@ if git rev-parse --git-dir > /dev/null 2>&1; then
 fi
 
 # Show codespace name if in a codespace (strip random suffix)
+# CODESPACE_INFO=""
+# if [ -n "$CODESPACE_NAME" ]; then
+#     # Remove the random suffix (everything after the last hyphen followed by alphanumeric chars)
+#     CODESPACE_DISPLAY=$(echo "$CODESPACE_NAME" | sed 's/-[a-z0-9]*$//')
+#     CODESPACE_INFO=" | 🚀 $CODESPACE_DISPLAY"
+# fi
 CODESPACE_INFO=""
-if [ -n "$CODESPACE_NAME" ]; then
-    # Remove the random suffix (everything after the last hyphen followed by alphanumeric chars)
-    CODESPACE_DISPLAY=$(echo "$CODESPACE_NAME" | sed 's/-[a-z0-9]*$//')
-    CODESPACE_INFO=" | 🚀 $CODESPACE_DISPLAY"
+
+# Show warning if exceeding 200k tokens
+TOKEN_WARNING=""
+EXCEEDS_200K=$(echo "$input" | jq -r '.exceeds_200k_tokens')
+if [ "$EXCEEDS_200K" = "true" ]; then
+    TOKEN_WARNING=" | ⚠️ >200k"
 fi
 
 
 
-echo "🕵🏻‍♀️👩🏻‍💻 [🤖 $MODEL_DISPLAY] 📁 ${CURRENT_DIR##*/}$GIT_BRANCH$CODESPACE_INFO | 💸 \$$COST"
+echo "🕵🏻‍♀️👩🏻‍💻 ${TOKEN_WARNING}[🤖 $MODEL_DISPLAY] 📁 ${CURRENT_DIR##*/}$GIT_BRANCH$CODESPACE_INFO | 💸 \$$COST"
