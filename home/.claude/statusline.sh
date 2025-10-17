@@ -32,6 +32,10 @@ if [ "$EXCEEDS_200K" = "true" ]; then
     TOKEN_WARNING=" | ⚠️ >200k"
 fi
 
+# Only show emoji prefix in non-VS Code terminals
+EMOJI_PREFIX=""
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+    EMOJI_PREFIX="🕵🏻‍♀️👩🏻‍💻 "
+fi
 
-
-echo "🕵🏻‍♀️👩🏻‍💻 ${TOKEN_WARNING}[🤖 $MODEL_DISPLAY] 📁 ${CURRENT_DIR##*/}$GIT_BRANCH$CODESPACE_INFO | 💸 \$$COST"
+echo "${EMOJI_PREFIX}${TOKEN_WARNING}[🤖 $MODEL_DISPLAY] 📁 ${CURRENT_DIR##*/}$GIT_BRANCH$CODESPACE_INFO | 💸 \$$COST"
