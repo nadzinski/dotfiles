@@ -5,9 +5,14 @@ alias gcb="git checkout -b"
 alias gpu="git push -u origin \$(git rev-parse --abbrev-ref HEAD)"
 alias gps-sre-tune="git push -f origin \$(git rev-parse --abbrev-ref HEAD):staging-sre-tune"
 
-# Codespaces-specific aliases
+# Codespaces-specific aliases and setup
 if [[ "$CODESPACES" == "true" ]]; then
     alias dotfiles="cd /workspaces/.codespaces/.persistedshare/dotfiles"
+
+    # Clone agents-mem if not already cloned (SSH is available in shell sessions)
+    if [ ! -d "$HOME/.agents-mem/.git" ]; then
+        (git clone git@github.com:nadzinski/agents-mem.git ~/.agents-mem &>/dev/null &)
+    fi
 fi
 
 alias run-mypy="dc run --workdir /web --rm --no-deps web mypy --show-error-codes src/aplaceforrover"

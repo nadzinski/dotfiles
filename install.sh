@@ -86,8 +86,8 @@ cd "$SCRIPT_DIR"
 
 echo "Dotfile symlinking process complete."
 
-# Clone agents-mem repository if it hasn't been cloned yet
-if [ ! -d "$HOME/.agents-mem/.git" ]; then
+# Clone agents-mem repository if it hasn't been cloned yet (skip in Codespaces - will be done on first shell)
+if [ -z "${CODESPACE_NAME}" ] && [ ! -d "$HOME/.agents-mem/.git" ]; then
   echo "Cloning agents-mem repository..."
   git clone git@github.com:nadzinski/agents-mem.git ~/.agents-mem
   if [ $? -eq 0 ]; then
@@ -95,6 +95,8 @@ if [ ! -d "$HOME/.agents-mem/.git" ]; then
   else
     echo "Warning: Failed to clone agents-mem repository"
   fi
+elif [ ! -d "$HOME/.agents-mem/.git" ]; then
+  echo "Skipping agents-mem clone in Codespaces (will be cloned on first shell session)"
 else
   echo "Skipping: agents-mem repository already cloned in ~/.agents-mem"
 fi
