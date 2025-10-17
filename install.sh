@@ -86,8 +86,36 @@ cd "$SCRIPT_DIR"
 
 echo "Dotfile symlinking process complete."
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --no-key-bindings --no-completion --no-update-rc
+# Clone agents-mem repository if it hasn't been cloned yet
+if [ ! -d "$HOME/.agents-mem/.git" ]; then
+  echo "Cloning agents-mem repository..."
+  git clone git@github.com:nadzinski/agents-mem.git ~/.agents-mem
+  if [ $? -eq 0 ]; then
+    echo "Successfully cloned agents-mem to ~/.agents-mem"
+  else
+    echo "Warning: Failed to clone agents-mem repository"
+  fi
+else
+  echo "Skipping: agents-mem repository already cloned in ~/.agents-mem"
+fi
+
+# Clone fzf if it hasn't been cloned yet
+if [ ! -d "$HOME/.fzf/.git" ]; then
+  echo "Cloning fzf repository..."
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  if [ $? -eq 0 ]; then
+    echo "Successfully cloned fzf to ~/.fzf"
+  else
+    echo "Warning: Failed to clone fzf repository"
+  fi
+else
+  echo "Skipping: fzf repository already cloned in ~/.fzf"
+fi
+
+# Install fzf if it exists
+if [ -x "$HOME/.fzf/install" ]; then
+  ~/.fzf/install --no-key-bindings --no-completion --no-update-rc
+fi
 
 ./scripts/vim_plugins.sh
 

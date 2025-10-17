@@ -1,9 +1,13 @@
 # Install neovim. We must do this manually as the latest version of the package registry is outdated.
-curl -fsLSO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
-chmod 755 nvim-linux-x86_64.appimage
-./nvim-linux-x86_64.appimage --appimage-extract
-mv squashfs-root $HOME/.nvim
-rm nvim-linux-x86_64.appimage
+if [ ! -d "$HOME/.nvim" ]; then
+  curl -fsLSO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
+  chmod 755 nvim-linux-x86_64.appimage
+  ./nvim-linux-x86_64.appimage --appimage-extract
+  mv squashfs-root $HOME/.nvim
+  rm nvim-linux-x86_64.appimage
+else
+  echo "Skipping neovim installation: $HOME/.nvim already exists"
+fi
 mkdir -p $HOME/.local/bin
 ln -sf "$HOME/.nvim/usr/bin/nvim" "$HOME/.local/bin"
 
