@@ -9,6 +9,12 @@ alias gps-sre-tune="git push -f origin \$(git rev-parse --abbrev-ref HEAD):stagi
 if [[ "$CODESPACES" == "true" ]]; then
     alias dotfiles="cd /workspaces/.codespaces/.persistedshare/dotfiles"
 
+    # Add GitHub to known_hosts to avoid interactive prompt
+    if [ ! -f "$HOME/.ssh/known_hosts" ] || ! grep -q "github.com" "$HOME/.ssh/known_hosts"; then
+        mkdir -p "$HOME/.ssh"
+        ssh-keyscan github.com >> "$HOME/.ssh/known_hosts" 2>/dev/null
+    fi
+
     # Clone agents-mem if not already cloned (SSH is available in shell sessions)
     if [ ! -d "$HOME/.agents-mem/.git" ]; then
         (git clone git@github.com:nadzinski/agents-mem.git ~/.agents-mem &>/dev/null &)
