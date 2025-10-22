@@ -12,7 +12,7 @@ if [[ "$CODESPACES" == "true" ]]; then
     # Add GitHub to known_hosts to avoid interactive prompt
     if [ ! -f "$HOME/.ssh/known_hosts" ] || ! grep -q "github.com" "$HOME/.ssh/known_hosts"; then
         mkdir -p "$HOME/.ssh"
-        ssh-keyscan github.com >> "$HOME/.ssh/known_hosts" 2>/dev/null
+        ssh-keyscan github.com 2>/dev/null | sudo tee -a "$HOME/.ssh/known_hosts" >/dev/null
     fi
 
     # Clone agents-mem if not already cloned (SSH is available in shell sessions)
