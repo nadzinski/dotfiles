@@ -115,7 +115,7 @@ require("lazy").setup({
 
         -- NOTE: Linting for JS/TS is provided by `eslint` lsp server
         lint.linters_by_ft = {
-          python = { 'flake8' },
+          python = { 'ruff' },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
@@ -154,7 +154,7 @@ require("lazy").setup({
         },
         formatters_by_ft = {
           lua = { 'stylua' },
-          python = { 'isort', 'black' },
+          python = { 'ruff_format', 'ruff_organize_imports' },
           -- We use eslint_d to process fixable problems on save
           javascript = { 'eslint_d', 'prettierd' },
           typescript = { 'eslint_d', 'prettierd' },
