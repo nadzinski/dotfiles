@@ -154,7 +154,7 @@ require("lazy").setup({
         },
         formatters_by_ft = {
           lua = { 'stylua' },
-          python = { 'ruff_format', 'ruff_organize_imports' },
+          python = { 'black', 'isort' },
           -- We use eslint_d to process fixable problems on save
           javascript = { 'eslint_d', 'prettierd' },
           typescript = { 'eslint_d', 'prettierd' },
