@@ -35,7 +35,8 @@ fi
 # Only show emoji prefix in non-VS Code terminals
 EMOJI_PREFIX=""
 if [ "$TERM_PROGRAM" != "vscode" ]; then
-    EMOJI_PREFIX="🕵🏻‍♀️👩🏻‍💻 "
+    # EMOJI_PREFIX="🕵🏻‍♀️👩🏻‍💻 "
+    EMOJI_PREFIX="👩🏻‍💻 "
 fi
 
 echo "${EMOJI_PREFIX}${TOKEN_WARNING}[🤖 $MODEL_DISPLAY] 📁 ${CURRENT_DIR##*/}$GIT_BRANCH$CODESPACE_INFO | 💸 \$$COST"
